@@ -1,0 +1,23 @@
+[Unit]
+Description=Megatron Voice Assistant (faster-whisper wake word, ElevenLabs TTS)
+After=network.target sound.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=tekzer0
+Group=tekzer0
+WorkingDirectory=/home/tekzer0/pi-voice
+ExecStart=/usr/bin/python3 -u /home/tekzer0/pi-voice/voice.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=megatron-voice
+
+# Give audio device time to settle on restart
+ExecStartPre=/bin/sleep 2
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

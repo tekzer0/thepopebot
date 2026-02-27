@@ -16,6 +16,8 @@ import re
 import json
 import wave
 import struct
+import signal
+import time
 import subprocess
 import numpy as np
 import requests
@@ -218,10 +220,21 @@ class MegatronClient:
         print(f'\nListening for "{WAKE_WORD}"...\n')
         wake_buffer = []
         chunks_needed = int(WAKE_CHUNK_SECONDS * SAMPLE_RATE / CHUNK_SIZE)
+        io_errors = 0
 
         try:
             while True:
-                length, data = self.audio_input.read()
+                try:
+                    length, data = self.audio_input.read()
+                except alsaaudio.ALSAAudioError as e:
+                    io_errors += 1
+                    if io_errors > 10:
+                        print(f'✗ Audio device unrecoverable ({e}), exiting.')
+                        break
+                    print(f'⚠  Audio read error ({e}), retrying in 1s...')
+                    time.sleep(1)
+                    continue
+                io_errors = 0
                 if length <= 0:
                     continue
 
@@ -417,6 +430,9 @@ class MegatronClient:
 
 
 def main():
+    # Handle SIGTERM from systemd gracefully (raises KeyboardInterrupt in main thread)
+    signal.signal(signal.SIGTERM, lambda sig, frame: (_ for _ in ()).throw(KeyboardInterrupt()))
+
     if not GROQ_API_KEY:
         print('ERROR: GROQ_API_KEY not set in ~/mybot/.env')
         return
