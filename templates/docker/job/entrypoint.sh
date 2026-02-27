@@ -72,12 +72,12 @@ if [ $CLAUDE_EXIT -ne 0 ]; then
     # Claude failed — only commit session logs, not partial code changes
     git reset || true
     git add -f "${LOG_DIR}"
-    git commit -m "thepopebot: job ${JOB_ID} (failed)" || true
+    git commit -m "🤖 Agent Job: ${TITLE} (failed)" || true
 else
     # Claude succeeded — commit everything
     git add -A
     git add -f "${LOG_DIR}"
-    git commit -m "thepopebot: job ${JOB_ID}" || true
+    git commit -m "🤖 Agent Job: ${TITLE}" || true
 fi
 
 git push origin
