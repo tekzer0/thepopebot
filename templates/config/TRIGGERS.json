@@ -54,5 +54,14 @@
       { "type": "agent", "job": "Review the GitHub event and summarize what happened:\n{{body}}", "llm_provider": "openai", "llm_model": "gpt-4o" }
     ],
     "enabled": false
+  },
+  {
+    "name": "ha-control",
+    "watch_path": "/ha-control",
+    "description": "Home Assistant control bridge — agent jobs POST here to control HA from GitHub Actions. Body: {domain, service, entity_id, data}",
+    "actions": [
+      { "type": "command", "command": "node cron/ha-control.js '{{body}}'" }
+    ],
+    "enabled": false
   }
 ]

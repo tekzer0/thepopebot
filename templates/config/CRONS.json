@@ -52,5 +52,21 @@
     "llm_provider": "openai",
     "llm_model": "gpt-4o",
     "enabled": false
+  },
+  {
+    "name": "self-healing",
+    "schedule": "*/5 * * * *",
+    "type": "command",
+    "command": "bash cron/self-heal.sh",
+    "description": "Check PM2 processes and systemd services; restart and Telegram-alert if any are down.",
+    "enabled": false
+  },
+  {
+    "name": "sys-notify",
+    "schedule": "*/10 * * * *",
+    "type": "command",
+    "command": "bash cron/sys-notify.sh",
+    "description": "Send Telegram alert if disk >80%, RAM >85%, or CPU >90%.",
+    "enabled": false
   }
 ]
