@@ -1,0 +1,28 @@
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Warning for groq/moonshotai/kimi-k2-instruct: Unknown context window size and 
+costs, using sane defaults.
+Did you mean one of these?
+- groq/moonshotai/kimi-k2-instruct-0905
+You can skip this check with --no-show-model-warnings
+
+https://aider.chat/docs/llms/warnings.html
+
+Aider v0.86.2
+Model: groq/moonshotai/kimi-k2-instruct with whole edit format
+Git repo: .git with 240 files
+Repo-map: using 1024 tokens, auto refresh
+Added CLAUDE.md to the chat (read-only).
+
+
+https://aider.chat/HISTORY.html#release-notes
+
+Initial repo scan can be slow in larger repos, but only happens once.
+Scanning repo:   0%|          | 0/240 [00:00<?, ?it/s]Scanning repo:  10%|█         | 25/240 [00:00<00:01, 127.26it/s]Scanning repo:  20%|██        | 49/240 [00:00<00:01, 170.49it/s]Scanning repo:  28%|██▊       | 68/240 [00:00<00:01, 103.51it/s]Scanning repo:  34%|███▍      | 82/240 [00:00<00:01, 86.50it/s] Scanning repo:  39%|███▉      | 93/240 [00:00<00:01, 81.76it/s]Scanning repo:  43%|████▎     | 103/240 [00:01<00:01, 78.32it/s]Scanning repo:  57%|█████▋    | 136/240 [00:01<00:00, 128.45it/s]Scanning repo:  63%|██████▎   | 152/240 [00:01<00:00, 101.76it/s]Scanning repo:  70%|███████   | 168/240 [00:01<00:00, 112.82it/s]Scanning repo:  76%|███████▌  | 182/240 [00:01<00:00, 92.48it/s] Scanning repo:  81%|████████  | 194/240 [00:01<00:00, 92.42it/s]Scanning repo:  92%|█████████▏| 221/240 [00:02<00:00, 128.52it/s]Scanning repo:  99%|█████████▉| 237/240 [00:02<00:00, 127.05it/s]Scanning repo: 100%|██████████| 240/240 [00:02<00:00, 109.48it/s]
+I'll help you with the tasks described in config/HEARTBEAT.md. Let me first add 
+that file to the chat so I can read it.                                         
+
+Could you please add the file config/HEARTBEAT.md to the chat so I can see what 
+tasks need to be completed?                                                     
+
+Tokens: 1.8k sent, 59 received.
