@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y \
     jq \
     curl \
     procps \
+    python3 \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install GitHub CLI
@@ -13,8 +15,8 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     && apt-get update && apt-get install -y gh \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Claude Code CLI
-RUN npm install -g @anthropic-ai/claude-code
+# Install aider (coding agent with multi-provider support)
+RUN pip3 install aider-chat --break-system-packages
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
