@@ -4,6 +4,7 @@
 //
 // DO NOT import or call any code that triggers database initialization or other
 // resource-intensive operations from this file.
+// This endpoint must remain lightweight and DB-free for monitoring purposes.
 export default function handler(request, response) {
   // Only allow GET requests; other methods are not supported for a heartbeat.
   if (request.method !== 'GET') {
