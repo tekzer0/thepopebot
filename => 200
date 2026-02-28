@@ -1,0 +1,8 @@
+
+## Why This Exists
+The existing `/api/version` endpoint performs a DB query to read `settings.update`, which can be costly for frequent health checks. The new `/api/heartbeat` endpoint offers a cheap alternative that confirms the service is up without any DB interaction.
+
+## Implementation Notes
+- Implemented in `pages/api/heartbeat.js`.
+- Contains a clear comment stating that the route must remain DB‑free.
+- No imports from `lib/db/`, `lib/tools/`, or other heavy modules.
