@@ -1,0 +1,83 @@
+Warning: Input is not a terminal (fd=0).
+────────────────────────────────────────────────────────────────────────────────
+Warning for groq/moonshotai/kimi-k2-instruct: Unknown context window size and 
+costs, using sane defaults.
+Did you mean one of these?
+- groq/moonshotai/kimi-k2-instruct-0905
+You can skip this check with --no-show-model-warnings
+
+https://aider.chat/docs/llms/warnings.html
+
+Aider v0.86.2
+Model: groq/moonshotai/kimi-k2-instruct with whole edit format
+Git repo: .git with 291 files
+Repo-map: using 1024 tokens, auto refresh
+Added CLAUDE.md to the chat (read-only).
+
+
+https://aider.chat/HISTORY.html#release-notes
+
+Initial repo scan can be slow in larger repos, but only happens once.
+Scanning repo:   0%|          | 0/291 [00:00<?, ?it/s]Scanning repo:   9%|▉         | 26/291 [00:00<00:02, 131.22it/s]Scanning repo:  17%|█▋        | 50/291 [00:00<00:01, 172.68it/s]Scanning repo:  24%|██▎       | 69/291 [00:00<00:02, 104.16it/s]Scanning repo:  29%|██▊       | 83/291 [00:00<00:02, 86.61it/s] Scanning repo:  32%|███▏      | 94/291 [00:00<00:02, 81.79it/s]Scanning repo:  36%|███▌      | 104/291 [00:01<00:02, 66.83it/s]Scanning repo:  63%|██████▎   | 183/291 [00:01<00:00, 202.48it/s]Scanning repo:  74%|███████▎  | 214/291 [00:01<00:00, 173.88it/s]Scanning repo:  82%|████████▏ | 239/291 [00:01<00:00, 120.27it/s]Scanning repo:  91%|█████████▏| 266/291 [00:02<00:00, 141.90it/s]Scanning repo:  99%|█████████▉| 288/291 [00:02<00:00, 140.57it/s]Scanning repo: 100%|██████████| 291/291 [00:02<00:00, 130.15it/s]
+Files most likely to need changes:                                              
+
+I need to create a new skill (list-credentials) that can enumerate all          
+LLM-exposed credentials. This will likely require:                              
+
+ 1 A new skill file in templates/pi-skills/list-credentials/ directory          
+ 2 A content.js with the logic to read environment variables prefixed with      
+   AGENT_LLM_ and return just the key names                                     
+
+No existing files are expected to change unless you have a different pattern for
+exposing this functionality.                                                    
+
+If you agree, let me know and I can return the full content for the new files   
+(likely templates/pi-skills/list-credentials/content.js).                       
+
+Tokens: 2.1k sent, 133 received.
+
+templates/pi-skills/brave-search/content.js
+templates/pi-skills/list-credentials/content.js                                 
+
+                                                                                
+#!/usr/bin/env node                                                             
+                                                                                
+                                                                                
+                                                                                
+// List all LLM-exposed credential key names (AGENT_LLM_*) without values       
+                                                                                
+const prefix = 'AGENT_LLM_';                                                    
+                                                                                
+                                                                                
+                                                                                
+// Collect matching environment variable keys                                   
+                                                                                
+const keys = Object.keys(process.env)                                           
+                                                                                
+  .filter(key => key.startsWith(prefix))                                        
+                                                                                
+  .map(key => key.slice(prefix.length));                                        
+                                                                                
+                                                                                
+                                                                                
+// Also check for ELEVENLABS_API_KEY explicitly                                 
+                                                                                
+if (process.env.ELEVENLABS_API_KEY !== undefined) {                             
+                                                                                
+  keys.push('ELEVENLABS_API_KEY');                                              
+                                                                                
+}                                                                               
+                                                                                
+                                                                                
+                                                                                
+// Output unique, sorted key names only                                         
+                                                                                
+console.log([...new Set(keys)].sort().join('\n'));                              
+                                                                                
+process.exit(0);                                                                
+                                                                                
+
+Tokens: 2.8k sent, 149 received.
+
+templates/pi-skills/list-credentials/content.js
+Applied edit to templates/pi-skills/list-credentials/content.js
