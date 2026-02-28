@@ -9,3 +9,5 @@ export default function handler(req, res) {
   // No database access, no heavy computations
   res.status(200).json({ status: 'ok' });
 }
+
+export const runtime = "nodejs";
