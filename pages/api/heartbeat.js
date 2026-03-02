@@ -1,6 +1,6 @@
-// This endpoint is a lightweight health check that should remain
-// free of any heavy operations like database initialization or calls
-// to other services, to ensure it's safe to call frequently for monitoring.
+// This endpoint is a lightweight health check and must remain free of
+// database imports or any other heavy operations. It is intended to be
+// called frequently by monitoring tools.
 export default function handler(request, response) {
   response.status(200).json({ status: 'ok' });
 }
