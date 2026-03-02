@@ -73,5 +73,12 @@
     "type": "command",
     "command": "bash sys-notify.sh",
     "enabled": true
+  },
+  {
+    "name": "trim-memory",
+    "schedule": "0 3 * * 0",
+    "type": "command",
+    "command": "bash trim-memory.sh",
+    "enabled": true
   }
 ]
