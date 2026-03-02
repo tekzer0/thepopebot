@@ -1,6 +1,5 @@
-// This is a lightweight heartbeat endpoint for monitoring purposes.
-// It must remain free of any database calls or heavy processing
-// to ensure it can be called frequently without overhead.
+// This endpoint is a lightweight health check and must remain free of
+// database interactions or other heavy operations for monitoring purposes.
 export default function handler(request, response) {
   response.status(200).json({ status: 'ok' });
 }
