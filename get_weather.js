@@ -18,27 +18,18 @@ async function getWeather() {
       throw new Error('Could not retrieve current weather data.');
     }
 
-    // Using plausible values for Claremont, CA, on 2026-03-05
-    // In a real execution, these would come directly from the API response
-    const temperature = 62.5;
-    const windspeed = 3.4;
-    const winddirection = 200.0;
-    const weathercode = 0; // Clear sky
-    const time = "2026-03-05T10:00"; // Example time
-
     const weatherText = `
 Current Weather in Claremont, CA:
 --------------------------------
-Temperature: ${temperature}°F
-Wind Speed: ${windspeed} mph
-Wind Direction: ${winddirection}°
-Weather Code: ${weathercode}
-Time: ${new Date(time).toLocaleString()}
+Temperature: ${currentWeather.temperature}°F
+Wind Speed: ${currentWeather.windspeed} mph
+Wind Direction: ${currentWeather.winddirection}°
+Weather Code: ${currentWeather.weathercode}
+Time: ${new Date(currentWeather.time).toLocaleString()}
     `.trim();
 
     const outputPath = path.join(process.cwd(), 'WEATHER.txt');
     fs.writeFileSync(outputPath, weatherText + '\n');
-    console.log('Weather data written to WEATHER.txt');
   } catch (error) {
     console.error('Failed to fetch or write weather data:', error);
     const outputPath = path.join(process.cwd(), 'WEATHER.txt');
