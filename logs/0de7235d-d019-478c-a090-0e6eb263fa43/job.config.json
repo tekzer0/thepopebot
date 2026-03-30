@@ -1,0 +1,4 @@
+{
+  "title": "Agent Job: Monitor and Report System Status through Heartbeat Messages.",
+  "job": "Read the file at config/HEARTBEAT.md and complete the tasks described there."
+}
