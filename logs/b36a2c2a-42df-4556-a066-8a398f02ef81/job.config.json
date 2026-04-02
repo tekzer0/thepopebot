@@ -1,0 +1,4 @@
+{
+  "title": "Automated Agent to Monitor Server Heartbeat and Trigger Actions On Disconnection",
+  "job": "Read the file at config/HEARTBEAT.md and complete the tasks described there."
+}
