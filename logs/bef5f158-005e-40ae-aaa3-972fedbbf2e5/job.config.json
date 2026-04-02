@@ -1,0 +1,4 @@
+{
+  "title": "Config Heartbeat Pulse Monitor Agent: Detect and Notify System Administrators",
+  "job": "Read the file at config/HEARTBEAT.md and complete the tasks described there."
+}
