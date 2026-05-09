@@ -1,0 +1,4 @@
+{
+  "title": "Software Agent: Configures Heartbeat Monitoring via User-Defined Rules",
+  "job": "Read the file at config/HEARTBEAT.md and complete the tasks described there."
+}
